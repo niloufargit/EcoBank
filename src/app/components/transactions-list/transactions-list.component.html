@@ -1,0 +1,31 @@
+<div class="space-y-4 mt-4">
+  <ul class="space-y-4">
+    <li *ngFor="let transaction of transactions" class="space-y-4 bg-white p-4">
+      <ul class="space-y-4">
+        <li>
+          <button [routerLink]="['/accounts', accountIdFromParent, 'transactions', transaction.id]">
+            <!-- Lien vers la page de détails de la transaction -->
+          </button>
+        </li>
+        <li>
+          <a [routerLink]="['/accounts', accountIdFromParent, 'transactions', transaction.id]">
+            <div class="p-3 rounded hover:bg-blue-100">
+              <div class="flex w-full justify-between">
+                <div class="flex space-x-4 items-center">
+                  <div class="inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-600 rounded-full">
+                    <span class="font-medium text-white">{{ transaction.emitter.owner.name.substring(0, 2) }}</span>
+                  </div>
+                  <div>
+                    <div>{{ transaction.emitter.owner.name }}</div>
+                    <div>{{ transaction.emittedAt | date:'HH:mm' }}</div>
+                  </div>
+                </div>
+                <div>{{ transaction.amount | currency:'EUR':'symbol':'1.2-2' }}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

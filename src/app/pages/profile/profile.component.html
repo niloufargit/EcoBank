@@ -1,0 +1,29 @@
+<main class="flex flex-col w-full h-screen bg-stone-100">
+  <div class="w-3/4 mt-10 bg-white self-center flex flex-col justify-center">
+
+    <button (click)="goBack()" class="px-4 py-4 pt-5 w-min">
+      <a routerLink="/" class="text-2xl w-min" href="/">&lt;-</a>
+    </button>
+
+    <div class="space-y-4">
+      <div class="flex justify-between">
+        <p class="px-4 py-2 text-xl text-black mb-1 font-bold">{{name}}</p>
+        <a routerLink="/profile" class="cursor-pointer flex flex-between">
+          <app-profile-image class="px-4" [href]="href" [initial]="initials"></app-profile-image>
+        </a>
+      </div>
+      <div class="flex flex-col">
+      <p class="px-4 text-xl text-black-100 mb-1">client code</p>
+      <p class="px-4 text-blue-500 w-min" (click)="copyToClipboard(id)" style="cursor: pointer;">{{id}}</p>
+    </div>
+    </div>
+    <!--
+    <a (click)="disconnect()" class="cursor-pointer underline text-blue-500">
+  -->
+    <a class="px-4 py-4 mt-4 cursor-pointer text-red-500 w-min" (click)="logout()">
+      Disconnect
+    </a>
+
+
+  </div>
+</main>

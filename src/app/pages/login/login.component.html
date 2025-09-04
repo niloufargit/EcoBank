@@ -1,0 +1,42 @@
+<div class="max-w-sm mx-auto flex bg-white rounded-lg shadow-xl">
+    <div class="flex min-h-full w-full flex-col justify-center px-9 py-8 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img class="mx-auto h-10 w-auto" src="assets/logo.svg" alt="Your Company">
+        </div>
+        <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm flex flex-col">
+            <form [formGroup]="form" class="space-y-6">
+                <div>
+                    <label class="text-gray-700" for="text">Client code</label>
+                    <div class="mt-1">
+                        <input type="text" id="clientCode" maxlength="8" name="clientCode" formControlName="clientCode"
+                            class="block w-full rounded-md border-0 py-2.5 pl-3 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ng-touched ng-invalid"
+                            placeholder="12345678">
+                    </div>
+                </div>
+                <div>
+                    <label for="password" class="password">Password</label>
+                    <div class="mt-1 flex items-center justify-between space-x-4">
+                        <input type="password" name="password" maxlength="6"
+                            class="block w-80 rounded-md border-0 py-3 pl-2.5 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            placeholder="******"
+                            formControlName="password">
+                        <button (click)="handleClear()" type="submit"
+                            class="flex w-20 justify-center rounded-md bg-red-500 px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">X</button>
+                    </div>
+                </div>
+                <app-digicode (buttonClick)="onDigicodeClicked($event)"></app-digicode>
+                <div>
+                    <button type="button" (click)="login()" [disabled]="form.invalid"
+                        class="bg-blue-500 enabled:hover:bg-blue-300 disabled:opacity-25 text-white font-bold py-2 px-4 rounded w-full">Login</button>
+                </div>
+            </form>
+            <div class="mt-4">
+                <p class=" text-sm text-gray-500">
+                    Don't have an account yet ?
+                    <a routerLink="/register"
+                        class="font-semibold leading-6 text-indigo-600 hover:text-blue-500">Register</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

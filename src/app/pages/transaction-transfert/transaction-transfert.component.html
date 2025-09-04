@@ -1,0 +1,26 @@
+<div class="p-3 bg-gray-100 h-full">
+  <div class="bg-white p-3 w-full">
+    <a routerLink="/" class="text-2xl w-min" href="/">&lt;-</a>
+    <form [formGroup]="sendingForm" (ngSubmit)="onSubmit()">
+      <div class="mt-4">
+        <label for="receiverAccountId"><span>Receiver account id</span></label>
+        <input class="flex rounded-md border border-gray-600 p-3 w-full text-gray-900" id="receiverAccountId"
+          type="text" [formControl]="sendingForm.controls.receiverAccountId" placeholder="bd26eff0-e416-4154-8ddf-2a4c3e3fbabb"/>
+      </div>
+      <div class="mt-4">
+        <label for="amount">Amount</label>
+        <input class="flex rounded-md border border-gray-600 p-3 w-full text-gray-900" placeholder="200"
+          id="amount" type="number" [formControl]="sendingForm.controls.amount" />
+      </div>
+      <div class="mt-4">
+
+        <label for="description"><span>Description</span></label>
+        <textarea id="description" type="textarea" [formControl]="sendingForm.controls.description" placeholder="Refund..."
+          class="flex rounded-md border border-gray-600 p-3 w-full text-gray-900"></textarea>
+      </div>
+      <div class="mt-4">
+        <button class=" w-full bg-blue-600 rounded text-white p-3" type="submit">Send</button>
+      </div>
+    </form>
+  </div>
+</div>

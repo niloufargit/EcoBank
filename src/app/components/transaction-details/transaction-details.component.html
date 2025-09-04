@@ -1,0 +1,39 @@
+<div class="p-3 bg-gray-100 h-full">
+  <div class="bg-white p-4 space-y-4">
+  <a class="text-2xl" href="/">&lt;-</a>
+  <div class="flex flex-col space-y-6">
+    <div *ngIf="transaction as tempTransaction">
+      <div class="flex justify-between">
+        <div class="space-y-1">
+
+          <h2 class="font-bold text-2xl">-{{ tempTransaction.amount }}&nbsp;€</h2>
+          <div *ngIf="tempTransaction.status==='canceled'" class="line-through font-bold text-2xl"> {{ tempTransaction.amount }} </div>
+          <div *ngIf="tempTransaction.status==='open || completed'" class="font-bold text-2xl"> {{ tempTransaction.amount }} </div>
+          <p>{{ tempTransaction.receiver.owner.name }}</p>
+          <p>{{ tempTransaction.emittedAt | date:'dd/MM/yyyy' }}</p>
+        </div>
+        <div class="inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-600 rounded-full">
+          <a routerLink="/profile" class="cursor-pointer">
+            <app-profile-image [href]="href" [initial]="initials"></app-profile-image>
+          </a>
+        </div>
+      </div>
+    <div class="space-y-4"><div class="flex justify-between">
+      <div> Status </div>
+      <div> {{ tempTransaction.status }} </div>
+    </div>
+      <div class="flex flex-col">
+        <div> Description </div>
+        <div>
+          <p class="break-words">{{ tempTransaction.description }}</p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div><!---->
+    <button (click)="cancelTransaction()" class="bg-red-500 p-2 rounded text-white w-fit">
+      Cancel
+    </button>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="p-3 bg-gray-100 h-full">
+  <div class="bg-white p-3 w-full">
+    <a routerLink="/" class="text-2xl w-min" href="/">&lt;-</a>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-4 mt-5 w-full">
+      <Label>
+        <span>Label</span>
+        <input
+          type="text"
+          placeholder="Checking Account"
+          class="flex rounded-md border border-gray-600 p-3 w-full text-gray-900"
+          formControlName="label"
+          >
+      </Label>
+
+      <Label>
+        <Span>Initial Balance</Span>
+        <input
+          type="text"
+          placeholder="200"
+          class="flex rounded-md border border-gray-600 p-3 w-full text-gray-900"
+          formControlName="initialBalance">
+      </Label>
+      <button class="bg-blue-600 rounded text-white p-2">Open</button>
+    </form>
+  </div>
+</div>
